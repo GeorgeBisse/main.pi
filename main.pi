@@ -1,0 +1,19 @@
+# Write your code here :-)
+#!/usr/bin/python3
+
+import serial
+import os
+import time
+
+port = serial.Serial( "/dev/rfcomm0", baudrate=9600 )
+
+while True:
+    print("DIGITAL LOGIC -- > SENDING...")
+    int=3
+    j=str(int)
+    b=j.encode()
+    port.write(b)
+    rcv =port.readline()
+if rcv:
+    print(rcv)
+    time.sleep(3)
